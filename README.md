@@ -92,7 +92,7 @@ pytest tests/ -v
 | Frontend Dashboard | `https://document-intelligence-platform-1-fw40.onrender.com/` |
 | Backend API | `https://document-intelligence-platform-1-fw40.onrender.com/docs` |
 | Swagger/OpenAPI Docs | `https://document-intelligence-platform-1-fw40.onrender.com/docs` |
-| Health Endpoint | `[<deployed-url>/api/v1/health](https://document-intelligence-platform-1-fw40.onrender.com/api/v1/health)` |
+| Health Endpoint | `https://document-intelligence-platform-1-fw40.onrender.com/api/v1/health` |
 | GitHub Repository | `https://github.com/Pownkumar-g/Document-intelligence-platform` |
 
 ## 📡 API Reference
