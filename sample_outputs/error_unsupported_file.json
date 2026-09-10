@@ -1,0 +1,8 @@
+{
+  "document_name": "unsupported_file.docx",
+  "document_type": "invoice",
+  "error": {
+    "code": "UNSUPPORTED_FILE_TYPE",
+    "message": "Only PDF / JPG / PNG documents are supported."
+  }
+}

@@ -1,0 +1,412 @@
+{
+  "document_name": "Consolidated Profit & Loss 2017.pdf",
+  "document_type": "profit_and_loss",
+  "processing_status": "PASS",
+  "overall_confidence": 0.99,
+  "file_validation": {
+    "file_type": "application/pdf",
+    "is_supported": true,
+    "is_readable": true,
+    "page_count": 1,
+    "status": "PASS"
+  },
+  "extracted_data": {
+    "company_name": {
+      "value": "HDFC Bank Limited",
+      "confidence": 0.99,
+      "page_number": 1,
+      "source_text": "HDFC Bank Limited Annual Report 2016-17"
+    },
+    "report_title": {
+      "value": "Consolidated Statement of Profit and Loss",
+      "confidence": 0.99,
+      "page_number": 1,
+      "source_text": "Consolidated Statement of Profit and Loss"
+    },
+    "period": {
+      "value": "For the year ended March 31, 2017",
+      "confidence": 0.99,
+      "page_number": 1,
+      "source_text": "For the year ended March 31, 2017"
+    },
+    "currency": {
+      "value": "INR",
+      "confidence": 0.99,
+      "page_number": 1,
+      "source_text": "\u20b9"
+    },
+    "unit": {
+      "value": "in '000",
+      "confidence": 0.99,
+      "page_number": 1,
+      "source_text": "\u20b9 in '000"
+    },
+    "periods": [
+      {
+        "period_label": "31-Mar-17",
+        "income": {
+          "items": [
+            {
+              "name": "Interest earned",
+              "value": 732713529.0,
+              "schedule_ref": "13",
+              "page_number": 1
+            },
+            {
+              "name": "Other income",
+              "value": 128776329.0,
+              "schedule_ref": "14",
+              "page_number": 1
+            }
+          ],
+          "total_income": {
+            "value": 861489858.0,
+            "page_number": 1
+          }
+        },
+        "expenditure": {
+          "items": [
+            {
+              "name": "Interest expended",
+              "value": 380415844.0,
+              "schedule_ref": "15",
+              "page_number": 1
+            },
+            {
+              "name": "Operating expenses",
+              "value": 207510707.0,
+              "schedule_ref": "16",
+              "page_number": 1
+            },
+            {
+              "name": "Provisions and contingencies",
+              "value": 120689285.0,
+              "schedule_ref": null,
+              "page_number": 1
+            }
+          ],
+          "total_expenditure": {
+            "value": 708615836.0,
+            "page_number": 1
+          }
+        },
+        "profit_calculations": {
+          "net_profit_for_the_year": {
+            "value": 152874022.0,
+            "page_number": 1
+          },
+          "consolidated_net_profit_before_mi": null,
+          "minority_interest": {
+            "value": 367165.0,
+            "page_number": 1
+          },
+          "consolidated_net_profit_group": {
+            "value": 152530250.0,
+            "page_number": 1
+          },
+          "brought_forward_profit": {
+            "value": 248255886.0,
+            "page_number": 1
+          },
+          "total_available_for_appropriation": {
+            "value": 401060643.0,
+            "page_number": 1
+          }
+        },
+        "appropriations": {
+          "items": [
+            {
+              "name": "Transfer to Statutory Reserve",
+              "value": 37771634.0,
+              "page_number": 1
+            },
+            {
+              "name": "Proposed dividend [Refer Schedule 18(3)]",
+              "value": null,
+              "page_number": 1
+            },
+            {
+              "name": "Tax (including cess) on interim / proposed dividend",
+              "value": 255959.0,
+              "page_number": 1
+            },
+            {
+              "name": "Dividend (including tax / cess thereon) pertaining to previous year paid during the year, net of dividend tax credits",
+              "value": -16909.0,
+              "page_number": 1
+            },
+            {
+              "name": "Transfer to General Reserve",
+              "value": 14549641.0,
+              "page_number": 1
+            },
+            {
+              "name": "Transfer to Capital Reserve",
+              "value": 3134100.0,
+              "page_number": 1
+            },
+            {
+              "name": "Transfer to / (from) Investment Reserve Account",
+              "value": 42934.0,
+              "page_number": 1
+            }
+          ],
+          "balance_carried_forward": {
+            "value": 345323284.0,
+            "page_number": 1
+          }
+        }
+      },
+      {
+        "period_label": "31-Mar-16",
+        "income": {
+          "items": [
+            {
+              "name": "Interest earned",
+              "value": 631615614.0,
+              "schedule_ref": "13",
+              "page_number": 1
+            },
+            {
+              "name": "Other income",
+              "value": 112116541.0,
+              "schedule_ref": "14",
+              "page_number": 1
+            }
+          ],
+          "total_income": {
+            "value": 743732155.0,
+            "page_number": 1
+          }
+        },
+        "expenditure": {
+          "items": [
+            {
+              "name": "Interest expended",
+              "value": 340695748.0,
+              "schedule_ref": "15",
+              "page_number": 1
+            },
+            {
+              "name": "Operating expenses",
+              "value": 178318808.0,
+              "schedule_ref": "16",
+              "page_number": 1
+            },
+            {
+              "name": "Provisions and contingencies",
+              "value": 96544349.0,
+              "schedule_ref": null,
+              "page_number": 1
+            }
+          ],
+          "total_expenditure": {
+            "value": 615558905.0,
+            "page_number": 1
+          }
+        },
+        "profit_calculations": {
+          "net_profit_for_the_year": {
+            "value": 128173250.0,
+            "page_number": 1
+          },
+          "consolidated_net_profit_before_mi": null,
+          "minority_interest": {
+            "value": 197212.0,
+            "page_number": 1
+          },
+          "consolidated_net_profit_group": {
+            "value": 128013316.0,
+            "page_number": 1
+          },
+          "brought_forward_profit": {
+            "value": 195508642.0,
+            "page_number": 1
+          },
+          "total_available_for_appropriation": {
+            "value": 323521958.0,
+            "page_number": 1
+          }
+        },
+        "appropriations": {
+          "items": [
+            {
+              "name": "Transfer to Statutory Reserve",
+              "value": 31809345.0,
+              "page_number": 1
+            },
+            {
+              "name": "Proposed dividend [Refer Schedule 18(3)]",
+              "value": 24017772.0,
+              "page_number": 1
+            },
+            {
+              "name": "Tax (including cess) on interim / proposed dividend",
+              "value": 5123529.0,
+              "page_number": 1
+            },
+            {
+              "name": "Dividend (including tax / cess thereon) pertaining to previous year paid during the year, net of dividend tax credits",
+              "value": -117135.0,
+              "page_number": 1
+            },
+            {
+              "name": "Transfer to General Reserve",
+              "value": 12296213.0,
+              "page_number": 1
+            },
+            {
+              "name": "Transfer to Capital Reserve",
+              "value": 2221532.0,
+              "page_number": 1
+            },
+            {
+              "name": "Transfer to / (from) Investment Reserve Account",
+              "value": -85184.0,
+              "page_number": 1
+            }
+          ],
+          "balance_carried_forward": {
+            "value": 248255886.0,
+            "page_number": 1
+          }
+        }
+      }
+    ]
+  },
+  "validation": {
+    "checks": [
+      {
+        "name": "income_components_sum_31-Mar-17",
+        "formula": "sum(income_items) \u2248 Total Income",
+        "operands": {
+          "component_count": 2,
+          "component_sum": 861489858.0
+        },
+        "calculated_value": 861489858.0,
+        "reported_value": 861489858.0,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "expenditure_components_sum_31-Mar-17",
+        "formula": "sum(expenditure_items) \u2248 Total Expenditure",
+        "operands": {
+          "component_count": 3,
+          "component_sum": 708615836.0
+        },
+        "calculated_value": 708615836.0,
+        "reported_value": 708615836.0,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "income_minus_expenditure_31-Mar-17",
+        "formula": "Total Income - Total Expenditure \u2248 Net Profit",
+        "operands": {
+          "total_income": 861489858.0,
+          "total_expenditure": 708615836.0
+        },
+        "calculated_value": 152874022.0,
+        "reported_value": 152874022.0,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "net_profit_after_mi_31-Mar-17",
+        "formula": "Net Profit before MI - Minority Interest \u2248 Net Profit (Group)",
+        "operands": {
+          "net_profit_before_mi": 152874022.0,
+          "minority_interest": 367165.0
+        },
+        "calculated_value": 152506857.0,
+        "reported_value": 152530250.0,
+        "variance": 23393.0,
+        "status": "FAIL"
+      },
+      {
+        "name": "appropriation_available_31-Mar-17",
+        "formula": "Current Profit + Brought Forward \u2248 Total Available",
+        "operands": {
+          "current_profit": 152530250.0,
+          "brought_forward": 248255886.0
+        },
+        "calculated_value": 400786136.0,
+        "reported_value": 401060643.0,
+        "variance": 274507.0,
+        "status": "FAIL"
+      },
+      {
+        "name": "income_components_sum_31-Mar-16",
+        "formula": "sum(income_items) \u2248 Total Income",
+        "operands": {
+          "component_count": 2,
+          "component_sum": 743732155.0
+        },
+        "calculated_value": 743732155.0,
+        "reported_value": 743732155.0,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "expenditure_components_sum_31-Mar-16",
+        "formula": "sum(expenditure_items) \u2248 Total Expenditure",
+        "operands": {
+          "component_count": 3,
+          "component_sum": 615558905.0
+        },
+        "calculated_value": 615558905.0,
+        "reported_value": 615558905.0,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "income_minus_expenditure_31-Mar-16",
+        "formula": "Total Income - Total Expenditure \u2248 Net Profit",
+        "operands": {
+          "total_income": 743732155.0,
+          "total_expenditure": 615558905.0
+        },
+        "calculated_value": 128173250.0,
+        "reported_value": 128173250.0,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "net_profit_after_mi_31-Mar-16",
+        "formula": "Net Profit before MI - Minority Interest \u2248 Net Profit (Group)",
+        "operands": {
+          "net_profit_before_mi": 128173250.0,
+          "minority_interest": 197212.0
+        },
+        "calculated_value": 127976038.0,
+        "reported_value": 128013316.0,
+        "variance": 37278.0,
+        "status": "FAIL"
+      },
+      {
+        "name": "appropriation_available_31-Mar-16",
+        "formula": "Current Profit + Brought Forward \u2248 Total Available",
+        "operands": {
+          "current_profit": 128013316.0,
+          "brought_forward": 195508642.0
+        },
+        "calculated_value": 323521958.0,
+        "reported_value": 323521958.0,
+        "variance": 0.0,
+        "status": "PASS"
+      }
+    ],
+    "overall_status": "FAIL",
+    "issues": [
+      "net_profit_after_mi_31-Mar-17",
+      "appropriation_available_31-Mar-17",
+      "net_profit_after_mi_31-Mar-16"
+    ]
+  },
+  "processing_metadata": {
+    "ocr_used": true,
+    "processed_at": "2026-09-10T12:10:16.525284+00:00Z",
+    "processing_time_ms": 79410
+  }
+}

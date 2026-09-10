@@ -1,0 +1,345 @@
+{
+  "document_name": "Consolidated Balance Sheet 2020.pdf",
+  "document_type": "balance_sheet",
+  "processing_status": "PASS",
+  "overall_confidence": 0.96,
+  "file_validation": {
+    "file_type": "application/pdf",
+    "is_supported": true,
+    "is_readable": true,
+    "page_count": 1,
+    "status": "PASS"
+  },
+  "extracted_data": {
+    "company_name": {
+      "value": "HDFC Bank Limited",
+      "confidence": 0.95,
+      "page_number": 1,
+      "source_text": "236 HDFC Bank Limited Integrated Annual Report 2019-20"
+    },
+    "report_title": {
+      "value": "Consolidated Balance Sheet",
+      "confidence": 0.99,
+      "page_number": 1,
+      "source_text": "Consolidated Balance Sheet"
+    },
+    "as_of_date": {
+      "value": "2020-03-31",
+      "confidence": 0.99,
+      "page_number": 1,
+      "source_text": "As at March 31, 2020"
+    },
+    "currency": {
+      "value": "INR",
+      "confidence": 0.95,
+      "page_number": 1,
+      "source_text": "\u20b9"
+    },
+    "unit": {
+      "value": "in '000",
+      "confidence": 0.95,
+      "page_number": 1,
+      "source_text": "\u20b9 in '000"
+    },
+    "auditor_notes": {
+      "value": "Significant accounting policies and notes to the Consolidated financial statements 17 & 18\nThe schedules referred to above form an integral part of the Consolidated Balance Sheet.",
+      "confidence": 0.95,
+      "page_number": 1,
+      "source_text": "Significant accounting policies and notes to the Consolidated financial statements 17 & 18\nThe schedules referred to above form an integral part of the Consolidated Balance Sheet."
+    },
+    "periods": [
+      {
+        "period_label": "As at 31-Mar-20",
+        "capital_and_liabilities": {
+          "items": [
+            {
+              "name": "Capital",
+              "value": 5483286,
+              "schedule_ref": "1",
+              "page_number": 1
+            },
+            {
+              "name": "Reserves and surplus",
+              "value": 1758103766,
+              "schedule_ref": "2",
+              "page_number": 1
+            },
+            {
+              "name": "Minority interest",
+              "value": 5766413,
+              "schedule_ref": "2A",
+              "page_number": 1
+            },
+            {
+              "name": "Deposits",
+              "value": 11462071336,
+              "schedule_ref": "3",
+              "page_number": 1
+            },
+            {
+              "name": "Borrowings",
+              "value": 1868343231,
+              "schedule_ref": "4",
+              "page_number": 1
+            },
+            {
+              "name": "Other liabilities and provisions",
+              "value": 708536341,
+              "schedule_ref": "5",
+              "page_number": 1
+            }
+          ],
+          "total": {
+            "value": 15808304373,
+            "page_number": 1
+          }
+        },
+        "assets": {
+          "items": [
+            {
+              "name": "Cash and balances with Reserve Bank of India",
+              "value": 722110033,
+              "schedule_ref": "6",
+              "page_number": 1
+            },
+            {
+              "name": "Balances with banks and money at call and short notice",
+              "value": 157291086,
+              "schedule_ref": "7",
+              "page_number": 1
+            },
+            {
+              "name": "Investments",
+              "value": 3893049519,
+              "schedule_ref": "8",
+              "page_number": 1
+            },
+            {
+              "name": "Advances",
+              "value": 10436708771,
+              "schedule_ref": "9",
+              "page_number": 1
+            },
+            {
+              "name": "Fixed assets",
+              "value": 46268558,
+              "schedule_ref": "10",
+              "page_number": 1
+            },
+            {
+              "name": "Other assets",
+              "value": 552876406,
+              "schedule_ref": "11",
+              "page_number": 1
+            },
+            {
+              "name": "Contingent liabilities",
+              "value": 11304740615,
+              "schedule_ref": "12",
+              "page_number": 1
+            },
+            {
+              "name": "Bills for collection",
+              "value": 515849020,
+              "schedule_ref": null,
+              "page_number": 1
+            }
+          ],
+          "total": {
+            "value": 15808304373,
+            "page_number": 1
+          }
+        }
+      },
+      {
+        "period_label": "As at 31-Mar-19",
+        "capital_and_liabilities": {
+          "items": [
+            {
+              "name": "Capital",
+              "value": 5446613,
+              "schedule_ref": "1",
+              "page_number": 1
+            },
+            {
+              "name": "Reserves and surplus",
+              "value": 1531279982,
+              "schedule_ref": "2",
+              "page_number": 1
+            },
+            {
+              "name": "Minority interest",
+              "value": 5017945,
+              "schedule_ref": "2A",
+              "page_number": 1
+            },
+            {
+              "name": "Deposits",
+              "value": 9225026779,
+              "schedule_ref": "3",
+              "page_number": 1
+            },
+            {
+              "name": "Borrowings",
+              "value": 1577327790,
+              "schedule_ref": "4",
+              "page_number": 1
+            },
+            {
+              "name": "Other liabilities and provisions",
+              "value": 583957956,
+              "schedule_ref": "5",
+              "page_number": 1
+            }
+          ],
+          "total": {
+            "value": 12928057065,
+            "page_number": 1
+          }
+        },
+        "assets": {
+          "items": [
+            {
+              "name": "Cash and balances with Reserve Bank of India",
+              "value": 468045896,
+              "schedule_ref": "6",
+              "page_number": 1
+            },
+            {
+              "name": "Balances with banks and money at call and short notice",
+              "value": 350130527,
+              "schedule_ref": "7",
+              "page_number": 1
+            },
+            {
+              "name": "Investments",
+              "value": 2894458722,
+              "schedule_ref": "8",
+              "page_number": 1
+            },
+            {
+              "name": "Advances",
+              "value": 8692226631,
+              "schedule_ref": "9",
+              "page_number": 1
+            },
+            {
+              "name": "Fixed assets",
+              "value": 42198371,
+              "schedule_ref": "10",
+              "page_number": 1
+            },
+            {
+              "name": "Other assets",
+              "value": 480996918,
+              "schedule_ref": "11",
+              "page_number": 1
+            },
+            {
+              "name": "Contingent liabilities",
+              "value": 10251253094,
+              "schedule_ref": "12",
+              "page_number": 1
+            },
+            {
+              "name": "Bills for collection",
+              "value": 499528010,
+              "schedule_ref": null,
+              "page_number": 1
+            }
+          ],
+          "total": {
+            "value": 12928057065,
+            "page_number": 1
+          }
+        }
+      }
+    ]
+  },
+  "validation": {
+    "checks": [
+      {
+        "name": "assets_eq_liabilities_As at 31-Mar-20",
+        "formula": "Total Assets \u2248 Total Capital & Liabilities",
+        "operands": {
+          "total_assets": 15808304373.0,
+          "total_capital_and_liabilities": 15808304373.0
+        },
+        "calculated_value": 15808304373.0,
+        "reported_value": 15808304373.0,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "asset_components_sum_As at 31-Mar-20",
+        "formula": "sum(asset_items) \u2248 Total Assets",
+        "operands": {
+          "component_count": 8,
+          "component_sum": 27628894008.0
+        },
+        "calculated_value": 27628894008.0,
+        "reported_value": 15808304373.0,
+        "variance": 11820589635.0,
+        "status": "FAIL"
+      },
+      {
+        "name": "cl_components_sum_As at 31-Mar-20",
+        "formula": "sum(capital_and_liabilities_items) \u2248 Total Capital & Liabilities",
+        "operands": {
+          "component_count": 6,
+          "component_sum": 15808304373.0
+        },
+        "calculated_value": 15808304373.0,
+        "reported_value": 15808304373.0,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "assets_eq_liabilities_As at 31-Mar-19",
+        "formula": "Total Assets \u2248 Total Capital & Liabilities",
+        "operands": {
+          "total_assets": 12928057065.0,
+          "total_capital_and_liabilities": 12928057065.0
+        },
+        "calculated_value": 12928057065.0,
+        "reported_value": 12928057065.0,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "asset_components_sum_As at 31-Mar-19",
+        "formula": "sum(asset_items) \u2248 Total Assets",
+        "operands": {
+          "component_count": 8,
+          "component_sum": 23678838169.0
+        },
+        "calculated_value": 23678838169.0,
+        "reported_value": 12928057065.0,
+        "variance": 10750781104.0,
+        "status": "FAIL"
+      },
+      {
+        "name": "cl_components_sum_As at 31-Mar-19",
+        "formula": "sum(capital_and_liabilities_items) \u2248 Total Capital & Liabilities",
+        "operands": {
+          "component_count": 6,
+          "component_sum": 12928057065.0
+        },
+        "calculated_value": 12928057065.0,
+        "reported_value": 12928057065.0,
+        "variance": 0.0,
+        "status": "PASS"
+      }
+    ],
+    "overall_status": "FAIL",
+    "issues": [
+      "asset_components_sum_As at 31-Mar-20",
+      "asset_components_sum_As at 31-Mar-19"
+    ]
+  },
+  "processing_metadata": {
+    "ocr_used": true,
+    "processed_at": "2026-09-10T12:08:57.094451+00:00Z",
+    "processing_time_ms": 21768
+  }
+}

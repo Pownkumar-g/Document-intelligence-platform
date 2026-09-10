@@ -1,0 +1,313 @@
+{
+  "document_name": "batch1-1109.jpg",
+  "document_type": "invoice",
+  "processing_status": "PASS",
+  "overall_confidence": 1.0,
+  "file_validation": {
+    "file_type": "image/jpeg",
+    "is_supported": true,
+    "is_readable": true,
+    "page_count": 1,
+    "status": "PASS"
+  },
+  "extracted_data": {
+    "invoice_number": {
+      "value": "94404257",
+      "confidence": 1.0,
+      "page_number": 1,
+      "source_text": "94404257"
+    },
+    "invoice_date": {
+      "value": "07/03/2013",
+      "confidence": 1.0,
+      "page_number": 1,
+      "source_text": "07/03/2013"
+    },
+    "vendor_name": {
+      "value": "Cruz PLC",
+      "confidence": 1.0,
+      "page_number": 1,
+      "source_text": "Cruz PLC"
+    },
+    "vendor_address": {
+      "value": "USNV Harris\nFPO AA 34966",
+      "confidence": 1.0,
+      "page_number": 1,
+      "source_text": "USNV Harris\nFPO AA 34966"
+    },
+    "vendor_tax_id": {
+      "value": "964-99-8203",
+      "confidence": 1.0,
+      "page_number": 1,
+      "source_text": "964-99-8203"
+    },
+    "customer_name": {
+      "value": "Sandoval-Phillips",
+      "confidence": 1.0,
+      "page_number": 1,
+      "source_text": "Sandoval-Phillips"
+    },
+    "customer_address": {
+      "value": "23699 James Villages Suite 818\nWest Tamara, MS 58825",
+      "confidence": 1.0,
+      "page_number": 1,
+      "source_text": "23699 James Villages Suite 818\nWest Tamara, MS 58825"
+    },
+    "customer_tax_id": {
+      "value": "976-94-5245",
+      "confidence": 1.0,
+      "page_number": 1,
+      "source_text": "976-94-5245"
+    },
+    "currency": {
+      "value": "USD",
+      "confidence": 1.0,
+      "page_number": 1,
+      "source_text": "$"
+    },
+    "subtotal": {
+      "value": 126.27,
+      "confidence": 1.0,
+      "page_number": 1,
+      "source_text": "126,27"
+    },
+    "tax_rate": {
+      "value": "10%",
+      "confidence": 1.0,
+      "page_number": 1,
+      "source_text": "10%"
+    },
+    "tax_amount": {
+      "value": 12.63,
+      "confidence": 1.0,
+      "page_number": 1,
+      "source_text": "12,63"
+    },
+    "discount": null,
+    "total_amount": {
+      "value": 138.9,
+      "confidence": 1.0,
+      "page_number": 1,
+      "source_text": "138,90"
+    },
+    "rounding_adjustment": null,
+    "cash_paid": null,
+    "change": null,
+    "payment_method": null,
+    "line_items": [
+      {
+        "description": "B0028NAO6C Shoeless Joe",
+        "quantity": 5.0,
+        "unit": "each",
+        "unit_price": 3.49,
+        "amount": 17.45,
+        "discount": null,
+        "vat_percent": 10.0,
+        "gross_amount": 19.2,
+        "page_number": 1
+      },
+      {
+        "description": "The Fifty Greatest Conspiracies of All Time History s Biggest Myster",
+        "quantity": 3.0,
+        "unit": "each",
+        "unit_price": 4.49,
+        "amount": 13.47,
+        "discount": null,
+        "vat_percent": 10.0,
+        "gross_amount": 14.82,
+        "page_number": 1
+      },
+      {
+        "description": "Story of a Soul: The Autobiography of St. Therese of Lisieux",
+        "quantity": 5.0,
+        "unit": "each",
+        "unit_price": 9.35,
+        "amount": 46.75,
+        "discount": null,
+        "vat_percent": 10.0,
+        "gross_amount": 51.42,
+        "page_number": 1
+      },
+      {
+        "description": "The Complete Idiots Guide to Trouble-Free Home Re",
+        "quantity": 4.0,
+        "unit": "each",
+        "unit_price": 4.49,
+        "amount": 17.96,
+        "discount": null,
+        "vat_percent": 10.0,
+        "gross_amount": 19.76,
+        "page_number": 1
+      },
+      {
+        "description": "Rebecca to the Rescue (American Girl (Quality))",
+        "quantity": 2.0,
+        "unit": "each",
+        "unit_price": 4.89,
+        "amount": 9.78,
+        "discount": null,
+        "vat_percent": 10.0,
+        "gross_amount": 10.76,
+        "page_number": 1
+      },
+      {
+        "description": "Tales from the Buffalo Bills",
+        "quantity": 1.0,
+        "unit": "each",
+        "unit_price": 5.5,
+        "amount": 5.5,
+        "discount": null,
+        "vat_percent": 10.0,
+        "gross_amount": 6.05,
+        "page_number": 1
+      },
+      {
+        "description": "Vietnam, The Decisive Battles",
+        "quantity": 2.0,
+        "unit": "each",
+        "unit_price": 7.68,
+        "amount": 15.36,
+        "discount": null,
+        "vat_percent": 10.0,
+        "gross_amount": 16.9,
+        "page_number": 1
+      }
+    ],
+    "additional_fields": {
+      "iban": {
+        "value": "GB31XOVK34958853133204",
+        "confidence": 1.0,
+        "page_number": 1,
+        "source_text": "GB31XOVK34958853133204"
+      }
+    }
+  },
+  "validation": {
+    "checks": [
+      {
+        "name": "line_item_1_total",
+        "formula": "quantity \u00d7 unit_price",
+        "operands": {
+          "quantity": 5.0,
+          "unit_price": 3.49
+        },
+        "calculated_value": 17.45,
+        "reported_value": 17.45,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "line_item_2_total",
+        "formula": "quantity \u00d7 unit_price",
+        "operands": {
+          "quantity": 3.0,
+          "unit_price": 4.49
+        },
+        "calculated_value": 13.47,
+        "reported_value": 13.47,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "line_item_3_total",
+        "formula": "quantity \u00d7 unit_price",
+        "operands": {
+          "quantity": 5.0,
+          "unit_price": 9.35
+        },
+        "calculated_value": 46.75,
+        "reported_value": 46.75,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "line_item_4_total",
+        "formula": "quantity \u00d7 unit_price",
+        "operands": {
+          "quantity": 4.0,
+          "unit_price": 4.49
+        },
+        "calculated_value": 17.96,
+        "reported_value": 17.96,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "line_item_5_total",
+        "formula": "quantity \u00d7 unit_price",
+        "operands": {
+          "quantity": 2.0,
+          "unit_price": 4.89
+        },
+        "calculated_value": 9.78,
+        "reported_value": 9.78,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "line_item_6_total",
+        "formula": "quantity \u00d7 unit_price",
+        "operands": {
+          "quantity": 1.0,
+          "unit_price": 5.5
+        },
+        "calculated_value": 5.5,
+        "reported_value": 5.5,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "line_item_7_total",
+        "formula": "quantity \u00d7 unit_price",
+        "operands": {
+          "quantity": 2.0,
+          "unit_price": 7.68
+        },
+        "calculated_value": 15.36,
+        "reported_value": 15.36,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "line_items_subtotal_check",
+        "formula": "sum(line_item_amounts)",
+        "operands": {
+          "line_item_amounts": [
+            17.45,
+            13.47,
+            46.75,
+            17.96,
+            9.78,
+            5.5,
+            15.36
+          ]
+        },
+        "calculated_value": 126.27,
+        "reported_value": 126.27,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "invoice_total_check",
+        "formula": "subtotal + tax_amount - discount + rounding_adjustment",
+        "operands": {
+          "subtotal": 126.27,
+          "tax_amount": 12.63,
+          "discount": 0.0,
+          "rounding_adjustment": 0.0
+        },
+        "calculated_value": 138.9,
+        "reported_value": 138.9,
+        "variance": 0.0,
+        "status": "PASS"
+      }
+    ],
+    "overall_status": "PASS",
+    "issues": []
+  },
+  "processing_metadata": {
+    "ocr_used": true,
+    "processed_at": "2026-09-10T12:08:35.293785+00:00Z",
+    "processing_time_ms": 17742
+  }
+}

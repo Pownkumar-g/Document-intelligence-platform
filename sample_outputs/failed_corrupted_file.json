@@ -1,0 +1,24 @@
+{
+  "document_name": "corrupted.pdf",
+  "document_type": "invoice",
+  "processing_status": "FAILED",
+  "overall_confidence": null,
+  "file_validation": {
+    "file_type": "application/pdf",
+    "is_supported": true,
+    "is_readable": false,
+    "page_count": 0,
+    "status": "FAIL"
+  },
+  "extracted_data": {},
+  "validation": {
+    "checks": [],
+    "overall_status": "FAIL",
+    "issues": ["File validation failed"]
+  },
+  "processing_metadata": {
+    "ocr_used": false,
+    "processed_at": "2026-09-10T12:00:00Z",
+    "processing_time_ms": 15
+  }
+}

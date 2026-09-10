@@ -1,0 +1,407 @@
+{% extends "base.html" %}
+
+{% block title %}{{ document_name }} - Document Intelligence Platform{% endblock %}
+
+{% block content %}
+<div class="breadcrumb">
+    <a href="/">← Back to Dashboard</a>
+</div>
+
+{% if result %}
+<!-- Header -->
+<section class="card">
+    <div class="result-header">
+        <div>
+            <h2>{{ result.document_name }}</h2>
+            <span class="badge badge-type">{{ result.document_type }}</span>
+            <span class="badge {{ 'badge-pass' if result.processing_status == 'PASS' else 'badge-fail' }}">
+                {{ result.processing_status }}
+            </span>
+            {% if result.overall_confidence is not none %}
+            <span class="confidence {{ 'confidence-high' if result.overall_confidence >= 0.8 else ('confidence-med' if result.overall_confidence >= 0.5 else 'confidence-low') }}">
+                Confidence: {{ "%.0f"|format(result.overall_confidence * 100) }}%
+            </span>
+            {% endif %}
+        </div>
+        <button class="btn btn-sm" onclick="toggleJsonView()">📄 Toggle Raw JSON</button>
+    </div>
+</section>
+
+<!-- File Validation -->
+<section class="card">
+    <h3>📁 File Validation</h3>
+    <div class="kv-grid">
+        {% set fv = result.file_validation %}
+        <div class="kv-item">
+            <span class="kv-key">File Type</span>
+            <span class="kv-value">{{ fv.file_type }}</span>
+        </div>
+        <div class="kv-item">
+            <span class="kv-key">Supported</span>
+            <span class="kv-value">{{ '✅' if fv.is_supported else '❌' }}</span>
+        </div>
+        <div class="kv-item">
+            <span class="kv-key">Readable</span>
+            <span class="kv-value">{{ '✅' if fv.is_readable else '❌' }}</span>
+        </div>
+        <div class="kv-item">
+            <span class="kv-key">Pages</span>
+            <span class="kv-value">{{ fv.page_count }}</span>
+        </div>
+        <div class="kv-item">
+            <span class="kv-key">Status</span>
+            <span class="badge {{ 'badge-pass' if fv.status == 'PASS' else 'badge-fail' }}">{{ fv.status }}</span>
+        </div>
+    </div>
+</section>
+
+<!-- Extracted Data -->
+<section class="card">
+    <h3>📊 Extracted Data</h3>
+    {% set ed = result.extracted_data %}
+
+    <!-- Key-Value Fields -->
+    <div class="kv-grid">
+        {% for key, val in ed.items() %}
+            {% if val is mapping and val.value is defined and key != 'line_items' and key != 'additional_fields' and key != 'periods' %}
+            <div class="kv-item {{ 'kv-low-confidence' if val.confidence is not none and val.confidence < 0.7 }}">
+                <span class="kv-key">{{ key | replace('_', ' ') | title }}</span>
+                <span class="kv-value">
+                    {% if val.value is none %}
+                        <span class="text-muted">null (not found)</span>
+                    {% else %}
+                        {{ val.value }}
+                    {% endif %}
+                    {% if val.confidence is not none %}
+                        <small class="confidence-badge {{ 'confidence-high' if val.confidence >= 0.8 else ('confidence-med' if val.confidence >= 0.5 else 'confidence-low') }}">
+                            {{ "%.0f"|format(val.confidence * 100) }}%
+                        </small>
+                    {% endif %}
+                    {% if val.page_number is not none %}
+                        <small class="page-ref">p.{{ val.page_number }}</small>
+                    {% endif %}
+                </span>
+            </div>
+            {% elif key not in ['line_items', 'additional_fields', 'periods'] and val is not mapping %}
+            <div class="kv-item">
+                <span class="kv-key">{{ key | replace('_', ' ') | title }}</span>
+                <span class="kv-value">{{ val if val is not none else 'null' }}</span>
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <!-- Line Items (Invoice) -->
+    {% if ed.line_items is defined and ed.line_items %}
+    <h4 style="margin-top: 1.5rem;">📝 Line Items</h4>
+    <div class="table-container">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Description</th>
+                    <th>Qty</th>
+                    <th>Unit Price</th>
+                    <th>Amount</th>
+                    {% if ed.line_items[0].vat_percent is defined %}<th>VAT %</th>{% endif %}
+                    {% if ed.line_items[0].gross_amount is defined %}<th>Gross</th>{% endif %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in ed.line_items %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ item.description or '-' }}</td>
+                    <td>{{ item.quantity if item.quantity is not none else '-' }}</td>
+                    <td>{{ item.unit_price if item.unit_price is not none else '-' }}</td>
+                    <td>{{ item.amount if item.amount is not none else '-' }}</td>
+                    {% if ed.line_items[0].vat_percent is defined %}<td>{{ item.vat_percent if item.vat_percent is not none else '-' }}</td>{% endif %}
+                    {% if ed.line_items[0].gross_amount is defined %}<td>{{ item.gross_amount if item.gross_amount is not none else '-' }}</td>{% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endif %}
+
+    <!-- Periods (Financial Statements) -->
+    {% if ed.periods is defined and ed.periods %}
+    {% for period in ed.periods %}
+    <div class="period-section">
+        <h4>📅 {{ period.period_label or 'Period ' ~ loop.index }}</h4>
+
+        {% if period.capital_and_liabilities is defined %}
+        <h5>Capital & Liabilities</h5>
+        <div class="table-container">
+            <table class="data-table">
+                <thead><tr><th>Item</th><th>Value</th></tr></thead>
+                <tbody>
+                    {% for item in (period.capital_and_liabilities.get('items') or []) %}
+                    <tr><td>{{ item.name }}</td><td class="num">{{ item.value if item.value is not none else '-' }}</td></tr>
+                    {% endfor %}
+                    {% if period.capital_and_liabilities.total is defined %}
+                    <tr class="total-row">
+                        <td><strong>TOTAL</strong></td>
+                        <td class="num"><strong>{{ period.capital_and_liabilities.total.value if period.capital_and_liabilities.total is mapping else period.capital_and_liabilities.total }}</strong></td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+
+        {% if period.assets is defined %}
+        <h5>Assets</h5>
+        <div class="table-container">
+            <table class="data-table">
+                <thead><tr><th>Item</th><th>Value</th></tr></thead>
+                <tbody>
+                    {% for item in (period.assets.get('items') or []) %}
+                    <tr><td>{{ item.name }}</td><td class="num">{{ item.value if item.value is not none else '-' }}</td></tr>
+                    {% endfor %}
+                    {% if period.assets.total is defined %}
+                    <tr class="total-row">
+                        <td><strong>TOTAL</strong></td>
+                        <td class="num"><strong>{{ period.assets.total.value if period.assets.total is mapping else period.assets.total }}</strong></td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+
+        {% if period.income is defined %}
+        <h5>Income</h5>
+        <div class="table-container">
+            <table class="data-table">
+                <thead><tr><th>Item</th><th>Value</th></tr></thead>
+                <tbody>
+                    {% for item in (period.income.get('items') or []) %}
+                    <tr><td>{{ item.name }}</td><td class="num">{{ item.value if item.value is not none else '-' }}</td></tr>
+                    {% endfor %}
+                    {% if period.income.total_income is defined %}
+                    <tr class="total-row">
+                        <td><strong>Total Income</strong></td>
+                        <td class="num"><strong>{{ period.income.total_income.value if period.income.total_income is mapping else period.income.total_income }}</strong></td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+
+        {% if period.expenditure is defined %}
+        <h5>Expenditure</h5>
+        <div class="table-container">
+            <table class="data-table">
+                <thead><tr><th>Item</th><th>Value</th></tr></thead>
+                <tbody>
+                    {% for item in (period.expenditure.get('items') or []) %}
+                    <tr><td>{{ item.name }}</td><td class="num">{{ item.value if item.value is not none else '-' }}</td></tr>
+                    {% endfor %}
+                    {% if period.expenditure.total_expenditure is defined %}
+                    <tr class="total-row">
+                        <td><strong>Total Expenditure</strong></td>
+                        <td class="num"><strong>{{ period.expenditure.total_expenditure.value if period.expenditure.total_expenditure is mapping else period.expenditure.total_expenditure }}</strong></td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+
+        {% if period.profit_calculations is defined %}
+        <h5>Profit Calculations</h5>
+        <div class="kv-grid">
+            {% for pk, pv in period.profit_calculations.items() %}
+            <div class="kv-item">
+                <span class="kv-key">{{ pk | replace('_', ' ') | title }}</span>
+                <span class="kv-value">{{ pv.value if pv is mapping else pv }}</span>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if period.operating_activities is defined %}
+        <h5>Operating Activities</h5>
+        <div class="table-container">
+            <table class="data-table">
+                <thead><tr><th>Item</th><th>Value</th></tr></thead>
+                <tbody>
+                    {% for item in (period.operating_activities.get('items') or []) %}
+                    <tr><td>{{ item.name }}</td><td class="num">{{ item.value if item.value is not none else '-' }}</td></tr>
+                    {% endfor %}
+                    {% if period.operating_activities.net_cash_flow is defined %}
+                    <tr class="total-row">
+                        <td><strong>Net Cash Flow</strong></td>
+                        <td class="num"><strong>{{ period.operating_activities.net_cash_flow.value if period.operating_activities.net_cash_flow is mapping else period.operating_activities.net_cash_flow }}</strong></td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+
+        {% if period.investing_activities is defined %}
+        <h5>Investing Activities</h5>
+        <div class="table-container">
+            <table class="data-table">
+                <thead><tr><th>Item</th><th>Value</th></tr></thead>
+                <tbody>
+                    {% for item in (period.investing_activities.get('items') or []) %}
+                    <tr><td>{{ item.name }}</td><td class="num">{{ item.value if item.value is not none else '-' }}</td></tr>
+                    {% endfor %}
+                    {% if period.investing_activities.net_cash_flow is defined %}
+                    <tr class="total-row">
+                        <td><strong>Net Cash Flow</strong></td>
+                        <td class="num"><strong>{{ period.investing_activities.net_cash_flow.value if period.investing_activities.net_cash_flow is mapping else period.investing_activities.net_cash_flow }}</strong></td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+
+        {% if period.financing_activities is defined %}
+        <h5>Financing Activities</h5>
+        <div class="table-container">
+            <table class="data-table">
+                <thead><tr><th>Item</th><th>Value</th></tr></thead>
+                <tbody>
+                    {% for item in (period.financing_activities.get('items') or []) %}
+                    <tr><td>{{ item.name }}</td><td class="num">{{ item.value if item.value is not none else '-' }}</td></tr>
+                    {% endfor %}
+                    {% if period.financing_activities.net_cash_flow is defined %}
+                    <tr class="total-row">
+                        <td><strong>Net Cash Flow</strong></td>
+                        <td class="num"><strong>{{ period.financing_activities.net_cash_flow.value if period.financing_activities.net_cash_flow is mapping else period.financing_activities.net_cash_flow }}</strong></td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+
+        {% if period.net_increase_in_cash is defined or period.opening_cash is defined or period.closing_cash is defined %}
+        <h5>Cash Reconciliation</h5>
+        <div class="kv-grid">
+            {% for ck in ['opening_cash', 'net_increase_in_cash', 'cash_acquired_on_amalgamation', 'fx_translation_adjustment', 'closing_cash'] %}
+                {% if period[ck] is defined %}
+                <div class="kv-item">
+                    <span class="kv-key">{{ ck | replace('_', ' ') | title }}</span>
+                    <span class="kv-value">{{ period[ck].value if period[ck] is mapping else period[ck] }}</span>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    <!-- Additional Fields -->
+    {% if ed.additional_fields is defined and ed.additional_fields %}
+    <h4 style="margin-top: 1.5rem;">🔖 Additional Fields</h4>
+    <div class="kv-grid">
+        {% for key, val in ed.additional_fields.items() %}
+        <div class="kv-item">
+            <span class="kv-key">{{ key | replace('_', ' ') | title }}</span>
+            <span class="kv-value">{{ val }}</span>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</section>
+
+<!-- Financial Validation -->
+<section class="card">
+    <h3>✅ Financial Validation</h3>
+    {% set val = result.validation %}
+    <div class="validation-header">
+        <span class="badge {{ 'badge-pass' if val.overall_status == 'PASS' else 'badge-fail' }}">
+            Overall: {{ val.overall_status }}
+        </span>
+        {% if val.issues %}
+        <span class="text-danger">{{ val.issues | length }} issue(s) found</span>
+        {% endif %}
+    </div>
+
+    {% if val.checks %}
+    <div class="table-container">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Check</th>
+                    <th>Formula</th>
+                    <th>Calculated</th>
+                    <th>Reported</th>
+                    <th>Variance</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for chk in val.checks %}
+                <tr class="{{ 'row-fail' if chk.status == 'FAIL' else ('row-na' if chk.status == 'NOT_APPLICABLE' else '') }}">
+                    <td>{{ chk.name }}</td>
+                    <td class="text-small">{{ chk.formula }}</td>
+                    <td class="num">{{ chk.calculated_value if chk.calculated_value is not none else '-' }}</td>
+                    <td class="num">{{ chk.reported_value if chk.reported_value is not none else '-' }}</td>
+                    <td class="num">{{ chk.variance if chk.variance is not none else '-' }}</td>
+                    <td>
+                        <span class="badge {{ 'badge-pass' if chk.status == 'PASS' else ('badge-fail' if chk.status == 'FAIL' else 'badge-na') }}">
+                            {{ chk.status }}
+                        </span>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <p class="text-muted">No validation checks performed.</p>
+    {% endif %}
+</section>
+
+<!-- Processing Metadata -->
+<section class="card">
+    <h3>⏱️ Processing Metadata</h3>
+    {% set pm = result.processing_metadata %}
+    <div class="kv-grid">
+        <div class="kv-item">
+            <span class="kv-key">OCR Used</span>
+            <span class="kv-value">{{ '✅ Yes' if pm.ocr_used else '❌ No (native text)' }}</span>
+        </div>
+        <div class="kv-item">
+            <span class="kv-key">Processed At</span>
+            <span class="kv-value">{{ pm.processed_at }}</span>
+        </div>
+        <div class="kv-item">
+            <span class="kv-key">Processing Time</span>
+            <span class="kv-value">{{ pm.processing_time_ms }} ms</span>
+        </div>
+    </div>
+</section>
+
+<!-- Raw JSON -->
+<section class="card" id="rawJsonSection" style="display:none;">
+    <h3>🔧 Raw JSON Response</h3>
+    <pre class="json-view"><code>{{ result_json }}</code></pre>
+</section>
+
+{% else %}
+<section class="card">
+    <h2>❌ Document Not Found</h2>
+    <p>No processed result found for "<strong>{{ document_name }}</strong>".</p>
+    <a href="/" class="btn btn-primary">← Back to Dashboard</a>
+</section>
+{% endif %}
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+function toggleJsonView() {
+    const section = document.getElementById('rawJsonSection');
+    section.style.display = section.style.display === 'none' ? 'block' : 'none';
+}
+</script>
+{% endblock %}

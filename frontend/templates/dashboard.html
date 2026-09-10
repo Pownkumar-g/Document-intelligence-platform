@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Document Intelligence Platform{% endblock %}
+
+{% block content %}
+<!-- Upload Section -->
+<section class="card upload-section">
+    <h2>📤 Upload & Process Document</h2>
+    <form id="uploadForm" enctype="multipart/form-data">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="documentType">Document Type</label>
+                <select id="documentType" name="document_type" required>
+                    <option value="">-- Select Type --</option>
+                    <option value="invoice">Invoice</option>
+                    <option value="balance_sheet">Balance Sheet</option>
+                    <option value="profit_and_loss">Profit &amp; Loss</option>
+                    <option value="cash_flow_statement">Cash Flow Statement</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="fileInput">File (PDF / JPG / PNG)</label>
+                <input type="file" id="fileInput" name="file" accept=".pdf,.jpg,.jpeg,.png" required>
+            </div>
+            <div class="form-group btn-group">
+                <button type="submit" id="processBtn" class="btn btn-primary">
+                    ⚙️ Process Document
+                </button>
+            </div>
+        </div>
+    </form>
+    <div id="uploadStatus" class="status-message" style="display:none;"></div>
+    <div id="progressBar" class="progress-bar" style="display:none;">
+        <div class="progress-fill"></div>
+    </div>
+</section>
+
+<!-- Dashboard Table -->
+<section class="card">
+    <h2>📋 Processed Documents</h2>
+    <div class="table-container">
+        <table id="documentsTable">
+            <thead>
+                <tr>
+                    <th>Document Name</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                    <th>Confidence</th>
+                    <th>Processed At</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="documentsBody">
+                {% if documents %}
+                    {% for doc in documents %}
+                    <tr>
+                        <td>{{ doc.document_name }}</td>
+                        <td><span class="badge badge-type">{{ doc.document_type }}</span></td>
+                        <td>
+                            <span class="badge {{ 'badge-pass' if doc.processing_status == 'PASS' else 'badge-fail' }}">
+                                {{ doc.processing_status }}
+                            </span>
+                        </td>
+                        <td>
+                            {% if doc.overall_confidence is not none %}
+                                <span class="confidence {{ 'confidence-high' if doc.overall_confidence >= 0.8 else ('confidence-med' if doc.overall_confidence >= 0.5 else 'confidence-low') }}">
+                                    {{ "%.0f"|format(doc.overall_confidence * 100) }}%
+                                </span>
+                            {% else %}
+                                <span class="text-muted">N/A</span>
+                            {% endif %}
+                        </td>
+                        <td class="text-small">{{ doc.processed_at[:19] if doc.processed_at else 'N/A' }}</td>
+                        <td>
+                            <a href="/document/{{ doc.document_name }}" class="btn btn-sm">View</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="6" class="text-center text-muted">No documents processed yet. Upload a document above to get started.</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,479 @@
+{
+  "document_name": "Consolidated Cash Flow Statement 2018.pdf",
+  "document_type": "cash_flow_statement",
+  "processing_status": "PASS",
+  "overall_confidence": 0.97,
+  "file_validation": {
+    "file_type": "application/pdf",
+    "is_supported": true,
+    "is_readable": true,
+    "page_count": 2,
+    "status": "PASS"
+  },
+  "extracted_data": {
+    "company_name": {
+      "value": "HDFC Bank Limited",
+      "confidence": 0.98,
+      "page_number": 1,
+      "source_text": "HDFC Bank Limited Annual Report 2017-18"
+    },
+    "report_title": {
+      "value": "Consolidated Cash Flow Statement",
+      "confidence": 0.99,
+      "page_number": 1,
+      "source_text": "Consolidated Cash Flow Statement"
+    },
+    "period": {
+      "value": "For the year ended March 31, 2018",
+      "confidence": 0.99,
+      "page_number": 1,
+      "source_text": "For the year ended March 31, 2018"
+    },
+    "currency": {
+      "value": "INR",
+      "confidence": 0.95,
+      "page_number": 1,
+      "source_text": "\u20b9 in \u2018000"
+    },
+    "unit": {
+      "value": "in '000",
+      "confidence": 0.95,
+      "page_number": 1,
+      "source_text": "\u20b9 in \u2018000"
+    },
+    "periods": [
+      {
+        "period_label": "Year ended 31-Mar-18",
+        "operating_activities": {
+          "items": [
+            {
+              "name": "Consolidated profit before income tax",
+              "value": 284131068,
+              "page_number": 1
+            },
+            {
+              "name": "Depreciation on fixed assets",
+              "value": 9667819,
+              "page_number": 1
+            },
+            {
+              "name": "(Profit) / loss on revaluation of investments",
+              "value": 1570448,
+              "page_number": 1
+            },
+            {
+              "name": "Amortisation of premia on held to maturity investments",
+              "value": 3599102,
+              "page_number": 1
+            },
+            {
+              "name": "(Profit) / loss on sale of fixed assets",
+              "value": 11833,
+              "page_number": 1
+            },
+            {
+              "name": "Provision / charge for non performing assets",
+              "value": 57553339,
+              "page_number": 1
+            },
+            {
+              "name": "Provision for diminution in value of Investments",
+              "value": 308075,
+              "page_number": 1
+            },
+            {
+              "name": "Floating provisions",
+              "value": null,
+              "page_number": 1
+            },
+            {
+              "name": "Provision for standard assets",
+              "value": 6575746,
+              "page_number": 1
+            },
+            {
+              "name": "Contingency provisions",
+              "value": 3961191,
+              "page_number": 1
+            },
+            {
+              "name": "Share in current year's profits of associates",
+              "value": -5221,
+              "page_number": 1
+            },
+            {
+              "name": "(Increase) / decrease in investments (excluding investments in subsidiaries)",
+              "value": -282310524,
+              "page_number": 1
+            },
+            {
+              "name": "(Increase) / decrease in advances",
+              "value": -1203053719,
+              "page_number": 1
+            },
+            {
+              "name": "Increase / (decrease) in deposits",
+              "value": 1452408940,
+              "page_number": 1
+            },
+            {
+              "name": "(Increase) / decrease in other assets",
+              "value": 52336433,
+              "page_number": 1
+            },
+            {
+              "name": "Increase / (decrease) in other liabilities and provisions",
+              "value": -114511772,
+              "page_number": 1
+            },
+            {
+              "name": "Direct taxes paid (net of refunds)",
+              "value": -100098994,
+              "page_number": 1
+            }
+          ],
+          "net_cash_flow": {
+            "value": 172143764,
+            "page_number": 1
+          }
+        },
+        "investing_activities": {
+          "items": [
+            {
+              "name": "Purchase of fixed assets",
+              "value": -8477746,
+              "page_number": 1
+            },
+            {
+              "name": "Proceeds from sale of fixed assets",
+              "value": 99204,
+              "page_number": 1
+            },
+            {
+              "name": "Investment in subsidiaries and / or joint ventures",
+              "value": -143331,
+              "page_number": 1
+            }
+          ],
+          "net_cash_flow": {
+            "value": -8521873,
+            "page_number": 1
+          }
+        },
+        "financing_activities": {
+          "items": [
+            {
+              "name": "Increase in minority interest",
+              "value": 666553,
+              "page_number": 2
+            },
+            {
+              "name": "Money received on exercise of stock options by employees",
+              "value": 27259098,
+              "page_number": 2
+            },
+            {
+              "name": "Increase / (decrease) in borrowings (excluding subordinate debt, perpetual debt and upper Tier II instruments)",
+              "value": 501014409,
+              "page_number": 2
+            },
+            {
+              "name": "Proceeds from issue of Additional Tier I and Tier II Capital Bonds",
+              "value": 100000000,
+              "page_number": 2
+            },
+            {
+              "name": "Redemption of subordinated debt",
+              "value": -20750000,
+              "page_number": 2
+            },
+            {
+              "name": "Dividend paid during the year",
+              "value": -28312716,
+              "page_number": 2
+            },
+            {
+              "name": "Tax on dividend",
+              "value": -6100741,
+              "page_number": 2
+            }
+          ],
+          "net_cash_flow": {
+            "value": 573776603,
+            "page_number": 2
+          }
+        },
+        "fx_translation_adjustment": {
+          "value": 105872,
+          "page_number": 2
+        },
+        "cash_acquired_on_amalgamation": {
+          "value": null,
+          "page_number": 2
+        },
+        "net_increase_in_cash": {
+          "value": 737504366,
+          "page_number": 2
+        },
+        "opening_cash": {
+          "value": 493111196,
+          "page_number": 2
+        },
+        "closing_cash": {
+          "value": 1230615562,
+          "page_number": 2
+        }
+      },
+      {
+        "period_label": "Year ended 31-Mar-17",
+        "operating_activities": {
+          "items": [
+            {
+              "name": "Consolidated profit before income tax",
+              "value": 233311478,
+              "page_number": 1
+            },
+            {
+              "name": "Depreciation on fixed assets",
+              "value": 8861876,
+              "page_number": 1
+            },
+            {
+              "name": "(Profit) / loss on revaluation of investments",
+              "value": -87543,
+              "page_number": 1
+            },
+            {
+              "name": "Amortisation of premia on held to maturity investments",
+              "value": 1756569,
+              "page_number": 1
+            },
+            {
+              "name": "(Profit) / loss on sale of fixed assets",
+              "value": 16229,
+              "page_number": 1
+            },
+            {
+              "name": "Provision / charge for non performing assets",
+              "value": 37024296,
+              "page_number": 1
+            },
+            {
+              "name": "Provision for diminution in value of Investments",
+              "value": -76417,
+              "page_number": 1
+            },
+            {
+              "name": "Floating provisions",
+              "value": 250000,
+              "page_number": 1
+            },
+            {
+              "name": "Provision for standard assets",
+              "value": 4312322,
+              "page_number": 1
+            },
+            {
+              "name": "Contingency provisions",
+              "value": 388440,
+              "page_number": 1
+            },
+            {
+              "name": "Share in current year's profits of associates",
+              "value": -23393,
+              "page_number": 1
+            },
+            {
+              "name": "(Increase) / decrease in investments (excluding investments in subsidiaries)",
+              "value": -173257700,
+              "page_number": 1
+            },
+            {
+              "name": "(Increase) / decrease in advances",
+              "value": -1018904990,
+              "page_number": 1
+            },
+            {
+              "name": "Increase / (decrease) in deposits",
+              "value": 972609590,
+              "page_number": 1
+            },
+            {
+              "name": "(Increase) / decrease in other assets",
+              "value": -44855329,
+              "page_number": 1
+            },
+            {
+              "name": "Increase / (decrease) in other liabilities and provisions",
+              "value": 228337692,
+              "page_number": 1
+            },
+            {
+              "name": "Direct taxes paid (net of refunds)",
+              "value": -76847189,
+              "page_number": 1
+            }
+          ],
+          "net_cash_flow": {
+            "value": 172815931,
+            "page_number": 1
+          }
+        },
+        "investing_activities": {
+          "items": [
+            {
+              "name": "Purchase of fixed assets",
+              "value": -11577570,
+              "page_number": 1
+            },
+            {
+              "name": "Proceeds from sale of fixed assets",
+              "value": 100768,
+              "page_number": 1
+            },
+            {
+              "name": "Investment in subsidiaries and / or joint ventures",
+              "value": null,
+              "page_number": 1
+            }
+          ],
+          "net_cash_flow": {
+            "value": -11476802,
+            "page_number": 1
+          }
+        },
+        "financing_activities": {
+          "items": [
+            {
+              "name": "Increase in minority interest",
+              "value": 818605,
+              "page_number": 2
+            },
+            {
+              "name": "Money received on exercise of stock options by employees",
+              "value": 22615161,
+              "page_number": 2
+            },
+            {
+              "name": "Increase / (decrease) in borrowings (excluding subordinate debt, perpetual debt and upper Tier II instruments)",
+              "value": -33898658,
+              "page_number": 2
+            },
+            {
+              "name": "Proceeds from issue of Additional Tier I and Tier II Capital Bonds",
+              "value": null,
+              "page_number": 2
+            },
+            {
+              "name": "Redemption of subordinated debt",
+              "value": -19084500,
+              "page_number": 2
+            },
+            {
+              "name": "Dividend paid during the year",
+              "value": -24083093,
+              "page_number": 2
+            },
+            {
+              "name": "Tax on dividend",
+              "value": -5297258,
+              "page_number": 2
+            }
+          ],
+          "net_cash_flow": {
+            "value": -58929743,
+            "page_number": 2
+          }
+        },
+        "fx_translation_adjustment": {
+          "value": -282622,
+          "page_number": 2
+        },
+        "cash_acquired_on_amalgamation": {
+          "value": 295617,
+          "page_number": 2
+        },
+        "net_increase_in_cash": {
+          "value": 102422381,
+          "page_number": 2
+        },
+        "opening_cash": {
+          "value": 390688815,
+          "page_number": 2
+        },
+        "closing_cash": {
+          "value": 493111196,
+          "page_number": 2
+        }
+      }
+    ]
+  },
+  "validation": {
+    "checks": [
+      {
+        "name": "cash_flow_sum_Year ended 31-Mar-18",
+        "formula": "Operating + Investing + Financing + FX \u2248 Net Change in Cash",
+        "operands": {
+          "operating": 172143764.0,
+          "investing": -8521873.0,
+          "financing": 573776603.0,
+          "fx_adjustment": 105872.0
+        },
+        "calculated_value": 737504366.0,
+        "reported_value": 737504366.0,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "cash_reconciliation_Year ended 31-Mar-18",
+        "formula": "Opening Cash + Net Change + Amalgamation \u2248 Closing Cash",
+        "operands": {
+          "opening_cash": 493111196.0,
+          "net_change": 737504366.0,
+          "amalgamation": 0.0
+        },
+        "calculated_value": 1230615562.0,
+        "reported_value": 1230615562.0,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "cash_flow_sum_Year ended 31-Mar-17",
+        "formula": "Operating + Investing + Financing + FX \u2248 Net Change in Cash",
+        "operands": {
+          "operating": 172815931.0,
+          "investing": -11476802.0,
+          "financing": -58929743.0,
+          "fx_adjustment": -282622.0
+        },
+        "calculated_value": 102126764.0,
+        "reported_value": 102422381.0,
+        "variance": 295617.0,
+        "status": "FAIL"
+      },
+      {
+        "name": "cash_reconciliation_Year ended 31-Mar-17",
+        "formula": "Opening Cash + Net Change + Amalgamation \u2248 Closing Cash",
+        "operands": {
+          "opening_cash": 390688815.0,
+          "net_change": 102422381.0,
+          "amalgamation": 295617.0
+        },
+        "calculated_value": 493406813.0,
+        "reported_value": 493111196.0,
+        "variance": 295617.0,
+        "status": "FAIL"
+      }
+    ],
+    "overall_status": "FAIL",
+    "issues": [
+      "cash_flow_sum_Year ended 31-Mar-17",
+      "cash_reconciliation_Year ended 31-Mar-17"
+    ]
+  },
+  "processing_metadata": {
+    "ocr_used": true,
+    "processed_at": "2026-09-10T12:10:57.529254+00:00Z",
+    "processing_time_ms": 40983
+  }
+}

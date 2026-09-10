@@ -1,0 +1,26 @@
+{
+  "document_name": "batch1-1109.jpg",
+  "document_type": "invoice",
+  "processing_status": "FAILED",
+  "overall_confidence": null,
+  "file_validation": {
+    "file_type": "image/jpeg",
+    "is_supported": true,
+    "is_readable": true,
+    "page_count": 1,
+    "status": "PASS"
+  },
+  "extracted_data": {},
+  "validation": {
+    "checks": [],
+    "overall_status": "FAIL",
+    "issues": [
+      "Extraction failed: AI extraction failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}"
+    ]
+  },
+  "processing_metadata": {
+    "ocr_used": true,
+    "processed_at": "2026-09-10T12:04:22.761794+00:00Z",
+    "processing_time_ms": 908
+  }
+}
