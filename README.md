@@ -89,11 +89,11 @@ pytest tests/ -v
 
 | Resource | URL |
 |----------|-----|
-| Frontend Dashboard | `<deployed-url>` |
-| Backend API | `<deployed-url>/api/v1/` |
-| Swagger/OpenAPI Docs | `<deployed-url>/docs` |
-| Health Endpoint | `<deployed-url>/api/v1/health` |
-| GitHub Repository | `<repo-url>` |
+| Frontend Dashboard | `https://document-intelligence-platform-1-fw40.onrender.com/` |
+| Backend API | `https://document-intelligence-platform-1-fw40.onrender.com/docs` |
+| Swagger/OpenAPI Docs | `https://document-intelligence-platform-1-fw40.onrender.com/docs` |
+| Health Endpoint | `[<deployed-url>/api/v1/health](https://document-intelligence-platform-1-fw40.onrender.com/api/v1/health)` |
+| GitHub Repository | `https://github.com/Pownkumar-g/Document-intelligence-platform` |
 
 ## 📡 API Reference
 
