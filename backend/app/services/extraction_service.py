@@ -55,25 +55,45 @@ class ExtractionService:
 
         parts.append(prompt)
 
-        try:
-            response = self._client.models.generate_content(
-                model="gemini-3.6-flash",
-                contents=parts,
-                config=types.GenerateContentConfig(
-                    response_mime_type="application/json",
-                    temperature=0.1,
-                ),
-            )
-            raw = response.text
-            result = json.loads(raw)
-            logger.info("Extraction succeeded for document_type=%s", document_type)
-            return result
-        except json.JSONDecodeError as exc:
-            logger.error("Gemini returned invalid JSON: %s", exc)
-            raise RuntimeError(f"AI extraction returned invalid JSON: {exc}") from exc
-        except Exception as exc:
-            logger.error("Extraction failed: %s", exc)
-            raise RuntimeError(f"AI extraction failed: {exc}") from exc
+        # Primary and fallback models in case Google experiences high demand (503) or rate limits (429)
+        candidate_models = ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-3.5-flash", "gemini-flash-latest"]
+        last_error = None
+
+        import time
+
+        for model_name in candidate_models:
+            for attempt in range(1, 3):  # up to 2 attempts per model
+                try:
+                    logger.info("Attempting extraction with model '%s' (attempt %d/2)...", model_name, attempt)
+                    response = self._client.models.generate_content(
+                        model=model_name,
+                        contents=parts,
+                        config=types.GenerateContentConfig(
+                            response_mime_type="application/json",
+                            temperature=0.1,
+                        ),
+                    )
+                    raw = response.text
+                    result = json.loads(raw)
+                    logger.info("Extraction succeeded with model '%s' for document_type=%s", model_name, document_type)
+                    return result
+                except json.JSONDecodeError as exc:
+                    logger.error("Model '%s' returned invalid JSON: %s", model_name, exc)
+                    raise RuntimeError(f"AI extraction returned invalid JSON: {exc}") from exc
+                except Exception as exc:
+                    err_msg = str(exc)
+                    last_error = exc
+                    logger.warning("Model '%s' attempt %d failed: %s", model_name, attempt, err_msg)
+                    # If 503 (high demand) or 429 (rate limit), pause briefly before retry
+                    if "503" in err_msg or "429" in err_msg or "UNAVAILABLE" in err_msg:
+                        time.sleep(2 * attempt)
+                        continue
+                    else:
+                        # Non-transient error for this model, try next candidate model
+                        break
+
+        logger.error("All candidate models failed extraction: %s", last_error)
+        raise RuntimeError(f"AI extraction failed across models: {last_error}") from last_error
 
     # ------------------------------------------------------------------
     # Prompt builders
